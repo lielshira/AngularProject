@@ -1,0 +1,19 @@
+
+<div class="container" class="card" style="width:21rem;">
+    <div class="row row-cols-4">
+      
+       <div  class="card-body">
+      <img src="../../assets/images/{{recipe.Image}}" class="card-img-top" alt="..." >
+    <h5 class="card-title">שם המתכון:{{ recipe.Name}}</h5>
+    <h6 class="card-text">משך זמן הכנה:{{recipe.PreparationTimeInMinute|time}}</h6>
+    <h6 class="card-text">{{recipe.Level|level}}:דרגת קושי</h6>  
+  <input id="but" type="button" value="למתכון המלא" [disabled]="!isLogged()" (click)="detailsRec(recipe.Id)">
+    </div>
+ 
+  </div>
+</div>
+<!-- ="u && u.Name=='אורח'" -->
+<!-- <button mat-raised-button color="primary"
+    matBadge="8" matBadgePosition="before" matBadgeColor="accent">
+  Action
+</button> -->

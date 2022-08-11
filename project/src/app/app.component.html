@@ -1,0 +1,18 @@
+<!-- <label id="t">MY FOODS</label> -->
+<nav class="navbar navbar-light" style="background-color:lightskyblue">
+    <div class="container-fluid">
+      <label *ngIf="u==undefined;else d" class="nav-item">שם משתמש:אורח</label>
+      <ng-template #d><label class="nav-item">שם משתמש:{{u?.Name}}</label></ng-template>
+      <label><a class="nav-link active" routerLink="all-rec">כל המתכונים</a></label>
+      <label *ngIf="name!='אורח'"><a class="nav-link active" routerLink="add">הוספת מתכון</a></label>
+      <label><a class="nav-link active" routerLink="login">כניסה</a></label>
+      <label><a class="nav-link active" routerLink="register">הרשמה</a></label>
+      <label *ngIf="u && u.Name!='אורח'"><a (click)="out()" class="nav-link active" routerLink="log-out">יציאה</a></label>
+    </div>
+  </nav>
+  <br>
+  <router-outlet></router-outlet>
+  <!-- <mat-slider></mat-slider> -->
+  
+  
+  

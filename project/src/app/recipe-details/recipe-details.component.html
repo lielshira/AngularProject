@@ -1,0 +1,24 @@
+<div id="ditails">
+   <p>קוד:{{recipe.Id}}</p>
+   <p>שם:{{recipe.Name}}</p>
+  <p> קטגוריה:{{recipe.CategoryId}}</p>
+   <p>icon:<img src="../../assets/icons/{{categ.Icon}}"></p>
+   <p>זמן הכנה:{{recipe.PreparationTimeInMinute}}</p>
+   <p>רמה:{{recipe.Level}}</p>
+   <p>תאריך הכנסת המתכון:{{recipe.AddDate|date:"dd/MM/yyyy"}}</p>
+   <p>:שכבות</p>
+   <ul *ngFor="let p of recipe.Layers">
+       <label>{{p.Description}}</label>
+       <li *ngFor="let c of  p.Components">
+              {{c}}
+       </li>
+   </ul>
+   <p>:אופן ההכנה</p>
+   <ol>
+       <li *ngFor="let f of recipe.Preparation">{{f}}</li>
+   </ol>
+   <p>קוד לקוח:{{recipe.UserId}}</p>
+   <img src="../../assets/images/{{recipe.Image}}">
+   <p>{{recipe.IsDisplay}}</p>
+   <input type="button" value="מחק מתכון" (click)="delete()" *ngIf="currentUserIsRecipeWoner(recipe.UserId)">
+</div>    

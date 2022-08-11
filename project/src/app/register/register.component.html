@@ -1,0 +1,19 @@
+<form #myForm="ngForm" (ngSubmit)="checkUser2(myForm)">
+    <br>
+<input class="form-control" type="text" placeholder="תעודת זהות" [(ngModel)]="us1.Id" name="i" minlength="9" pattern="[0-9]*">
+<br>
+<br>
+<input class="form-control" type="text" placeholder="שם משתמש" [(ngModel)]="us1.Name" name="n">
+<br>
+<br>
+<input class="form-control" type="text" placeholder="כתובת" [(ngModel)]="us1.Address" name="a" minlength="5" pattern="[0-9a-zA-Z]*">
+<br>
+<br>
+<input  class="form-control" type="text" placeholder="name@example.com" [(ngModel)]="us1.Mail" name="m"  required pattern="^[a-zA-Z0–9_.+-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9-.]+$"/> 
+<br>
+<br>
+<input class="form-control" type="password" placeholder="סיסמא" [(ngModel)]="us1.Password" name="p" required pattern="[0-9a-zA-Z]*">
+<br>
+<br>
+<input class="btn btn-primary" type="submit" [disabled]="!myForm.valid" value="הירשם">
+</form>

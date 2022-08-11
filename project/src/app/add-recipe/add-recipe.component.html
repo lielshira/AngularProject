@@ -1,0 +1,84 @@
+ 
+  <form (ngSubmit)="addRec()">
+  <br>  
+    <input class="form-control" type="text" placeholder="מספר זיהוי" [(ngModel)]="id" name="i">
+    <br>
+    <br>
+    <input class="form-control" type="text" placeholder="שם מתכון" [(ngModel)]="name" name="n">
+    <br>
+    <label>:בחר קטגוריה</label>
+    <br>
+    <select class="form-control">
+        <option placeholder="קטגוריה" *ngFor="let c of categoryArr" [value]="c.Id">{{c.Name}}</option>
+    </select>
+    <br>
+
+    <div id="addLayer" *ngFor="let l of r.Layers;index as i">
+      <label>:שם שכבה</label>
+      <br>
+      <input type="text" name="{{l}}-desc" [(ngModel)]="l.Description">
+      <br>
+      <label>רכיבים לשלב זה</label>
+      <br>
+      <input type="text" placeholder="שם רכיב" *ngFor="let j of l.Components;index as y" [(ngModel)]="l.Components[y]"
+
+          name="l.Components[y]">
+          <br>
+      <input type="button" value="הוסף רכיב " (click)="AddStep(i)">
+      
+  </div>
+   <div id="addstep"></div>
+   <input class="form-control" type="button" value="הוסף שכבה" (click)="AddLayer()"/>
+    <div id="addLayer"></div>
+    <br>
+    <br>
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>בחר קטגוריה</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let food of categoryArr" [value]="food.Id">
+          {{food.Name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
+    <br>
+    <input class="form-control" type="text" placeholder="זמן הכנה" [(ngModel)]="time" name="t"  >
+    <br>
+    <br>
+    <input class="form-control" type="text" placeholder="רמת קושי" [(ngModel)]="level" name="l">
+    <br>
+    <br>
+    <input class="form-control" type="date" placeholder="תאריך" [(ngModel)]="date1" name="d"/>
+    <br>
+    <br>
+   
+    <input class="form-control" type="text" placeholder="זיהוי משתמש" [(ngModel)]="useId" name="u">
+    <br>
+    <br>
+    <label>:בחר תמונה</label>
+    <div class="mb-3">
+        <br>
+        <input class="form-control" type="file" id="formFile">
+      </div>
+    <br>
+    <label>הוראות הכנה</label>
+    <br>
+    <textarea [(ngModel)]="prep" name="p" rows="4" cols="50"></textarea>
+    <br>
+    <br>
+    <input class="form-control"  class="form-check-label" type="checkbox"  [(ngModel)]="display" name="dis">
+    <br>
+    <br>
+    <input  mat-button (click)="openDialog(template)" type="submit" value="שמור" class="btn btn-primary">
+    <ng-template #template>
+      <h1>המתכון נוסף בהצלחה</h1>
+     </ng-template>
+  </form>
+ 
+
+    
+      
+        
+       
+        
+        
+    

@@ -1,0 +1,12 @@
+<form #myForm="ngForm"  (ngSubmit)="checkUser(myForm)">
+<br>
+<input type="text" class="form-control" placeholder="שם משתמש" [(ngModel)]="name" name="n1"   required minlength="3" >
+<!-- <div *ngIf="name.touched && name.errors&&name.errors.required">שם הוא שדה חובה*</div> -->
+            
+<br>
+<input class="form-control" type="password" placeholder="סיסמא" [(ngModel)]="pas" name="p1" required minlength="6">
+<br>
+<input  class="btn btn-primary" type="submit"  [disabled]="!myForm.valid"  value="כניסה">
+</form>
+<!-- <mat-card>Simple card</mat-card> -->
+<!-- pattern="[a-zA-zא-ת]*" -->
